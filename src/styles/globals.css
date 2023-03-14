@@ -1,8 +1,0 @@
-/* Write your global application styles here. */
-
-html,
-body,
-#__next {
-  height: 100%;
-  max-width: 100vw;
-}
