@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head'
 
 export default function Home() {
   return (
@@ -14,24 +14,24 @@ export default function Home() {
       </Head>
       <main
         style={{
-          backgroundColor: "#1a1b1b",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-          height: "100%",
+          backgroundColor: '#1a1b1b',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '100%',
+          height: '100%'
         }}
       >
         <h1
           style={{
-            color: "cyan",
-            fontFamily: "Arial",
-            fontSize: "4rem",
+            color: 'cyan',
+            fontFamily: 'Arial',
+            fontSize: '4rem'
           }}
         >
           Next + Typescript + ESLint
         </h1>
       </main>
     </>
-  );
+  )
 }
