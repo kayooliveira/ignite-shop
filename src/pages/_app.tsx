@@ -1,5 +1,3 @@
-// import '@/styles/globals.css'
-import 'normalize.css/normalize.css'
 import { globalStyles } from '@/styles/globals'
 import type { AppProps } from 'next/app'
 import { Roboto } from 'next/font/google'
