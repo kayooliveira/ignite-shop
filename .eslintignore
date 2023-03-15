@@ -3,3 +3,4 @@ dist
 /*.js
 bin
 .env
+.next
