@@ -4,15 +4,21 @@ export const Button = styled('button', {
   padding: '1.25rem 2rem',
   borderRadius: '.5rem',
   color: 'white',
-  backgroundColor: '$green',
+  backgroundColor: '$green500',
   fontWeight: 'bold',
   lineHeight: '$default',
   border: 'none',
   transition: 'all 0.2s ease-in-out',
   cursor: 'pointer',
+  outline: 'none',
 
   '&:hover, &:focus': {
-    backgroundColor: '$greenLight'
+    backgroundColor: '$green300'
+  },
+
+  '&:focus': {
+    outline: '1px solid $green300',
+    outlineOffset: 2
   },
 
   variants: {
@@ -32,6 +38,7 @@ export const Button = styled('button', {
   },
 
   defaultVariants: {
-    full: false
+    full: false,
+    icon: false
   }
 })
