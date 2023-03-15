@@ -13,8 +13,8 @@ globalStyles()
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <DefaultLayout>
-      <Component className={roboto.className} {...pageProps} />
+    <DefaultLayout className={roboto.className}>
+      <Component {...pageProps} />
     </DefaultLayout>
   )
 }
