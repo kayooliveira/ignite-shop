@@ -5,10 +5,11 @@ export const Header = styled('header', {
   alignItems: 'center',
   justifyContent: 'center',
   width: '100%',
-  maxWidth: '100%',
-  padding: '0.5rem',
-  marginBottom: '2rem',
-  '@md': {
-    justifyContent: 'flex-start'
+  maxWidth: '$xl',
+  padding: '1.5rem 0',
+
+  '@lg': {
+    justifyContent: 'flex-start',
+    padding: '2rem 1.5rem'
   }
 })

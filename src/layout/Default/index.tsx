@@ -2,17 +2,34 @@ import logo from '@/assets/logo.png'
 import { Header } from '@/styles/layout'
 import { Container } from '@/ui/Container'
 import Image from 'next/image'
-import { ReactNode } from 'react'
+import Link from 'next/link'
+import { HTMLAttributes, ReactNode } from 'react'
 
-interface DefaultLayoutProps {
+interface DefaultLayoutProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode
 }
 
-export function DefaultLayout({ children }: DefaultLayoutProps) {
+export function DefaultLayout({ children, ...props }: DefaultLayoutProps) {
   return (
-    <Container full css={{ backgroundColor: '$gray900' }}>
+    <Container
+      full
+      align="center"
+      justify={{
+        '@lg': 'center'
+      }}
+      css={{
+        backgroundColor: '$gray900'
+      }}
+      {...props}
+    >
       <Header>
-        <Image alt="" src={logo} />
+        <Link
+          href={{
+            pathname: '/'
+          }}
+        >
+          <Image alt="" src={logo} />
+        </Link>
       </Header>
       {children}
     </Container>
