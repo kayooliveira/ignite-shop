@@ -43,10 +43,7 @@ export default function ProductPage({ product }: ProductPageProps) {
         />
         <meta name="msapplication-TileImage" content={product.imageUrl} />
         <meta name="author" content="Kayo Oliveira<contato@kayooliveira.com>" />
-        <meta
-          name="og:title"
-          content="Ignite Shop - A melhor loja de camisetas da minha casa!"
-        />
+        <meta name="og:title" content={`${product.name} - Ignite Shop`} />
         <meta name="og:site_name" content="Ignite Shop" />
         <meta
           name="og:url"
@@ -58,10 +55,7 @@ export default function ProductPage({ product }: ProductPageProps) {
         <meta name="og:image:height" content="285" />
         <meta name="og:image" content={product.imageUrl} />
         <meta name="og:type" content="product" />
-        <meta
-          name="og:description"
-          content="Temos uma vasta seleção de cores, desde 'branco sujo' até 'preto quase lavado', para que você possa escolher a camiseta que melhor combina com a sujeira em suas mãos. E não se preocupe com o tamanho, porque acreditamos que uma camiseta grande demais é apenas uma oportunidade para se vestir como um saco de batatas."
-        />
+        <meta name="og:description" content={product.description} />
         <link
           rel="canonical"
           href={`https://ignite.shop.kayooliveira.com/produto/${product.id}`}
