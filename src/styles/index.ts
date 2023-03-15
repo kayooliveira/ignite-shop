@@ -12,40 +12,41 @@ export const {
 } = createStitches({
   media: {
     // Using the tailwindcss pattern.
-    sm: '640px',
+    sm: '(min-width: 640px)',
     // => @media (min-width: 640px) { ... }
 
-    md: '768px',
+    md: '(min-width: 768px)',
     // => @media (min-width: 768px) { ... }
 
-    lg: '1024px',
+    lg: '(min-width: 1024px)',
     // => @media (min-width: 1024px) { ... }
 
-    xl: '1280px',
+    xl: '(min-width: 1280px)',
     // => @media (min-width: 1280px) { ... }
 
-    '2xl': '1536px'
+    '2xl': '(min-width: 1536px)'
     // => @media (min-width: 1536px) { ... }
   },
   prefix: 'ignite-shop',
   theme: {
     colors: {
-      green: '#00875F',
-      greenLight: '#00b37E',
-      background: '#121214',
-      gray1: '#202024',
-      gray2: '#C4C4CC',
-      gray3: '#E1E1E6',
-      white: '#FFFFFF'
+      white: '#fff',
+      gray900: '#121214',
+      gray800: '#202024',
+      gray300: '#c4c4cc',
+      gray100: '#e1e1e6',
+
+      green500: '#00875f',
+      green300: '#00b37e'
     },
     fonts: {
       default: "'Roboto', Arial, Helvetica, sans-serif"
     },
     fontSizes: {
-      sm: 18,
-      md: 20,
-      lg: 24,
-      xl: 32
+      md: '1.125rem',
+      lg: '1.25rem',
+      xl: '1.5rem',
+      '2xl': '2rem'
     },
     lineHeights: {
       default: '160%'
