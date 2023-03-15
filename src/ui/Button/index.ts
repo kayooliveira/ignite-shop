@@ -8,7 +8,7 @@ export const Button = styled('button', {
   fontWeight: 'bold',
   lineHeight: '$default',
   border: 'none',
-  transition: '.2s ease-in-out',
+  transition: 'all 0.2s ease-in-out',
   cursor: 'pointer',
 
   '&:hover, &:focus': {
@@ -19,6 +19,14 @@ export const Button = styled('button', {
     full: {
       true: {
         width: '100%'
+      }
+    },
+    icon: {
+      true: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '1rem'
       }
     }
   },
