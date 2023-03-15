@@ -1,5 +1,10 @@
 import { stripe } from '@/lib/stripe'
-import { ProductContainer } from '@/styles/pages/product'
+import {
+  ProductContainer,
+  ProductImageContainer,
+  ProductInfoContainer
+} from '@/styles/pages/product'
+import { Button } from '@/ui/Button'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -63,14 +68,22 @@ export default function ProductPage({ product }: ProductPageProps) {
       </Head>
 
       <ProductContainer>
-        <h1>{product.name}</h1>
-        <h3>{product.description}</h3>
-        <Image
-          alt={product.name}
-          src={product.imageUrl}
-          width={520}
-          height={480}
-        />
+        <ProductImageContainer>
+          <Image
+            src={product.imageUrl}
+            alt={product.name}
+            width={520}
+            height={480}
+          />
+        </ProductImageContainer>
+        <ProductInfoContainer>
+          <div>
+            <h1>{product.name}</h1>
+            <h2>{product.price}</h2>
+            <span>{product.description}</span>
+          </div>
+          <Button>Comprar agora</Button>
+        </ProductInfoContainer>
       </ProductContainer>
     </>
   )
