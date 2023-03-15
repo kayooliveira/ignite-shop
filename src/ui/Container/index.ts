@@ -21,12 +21,24 @@ export const Container = styled('div', {
     },
     align: {
       center: {
-        alignItems: 'center',
+        alignItems: 'center'
+      },
+      start: {
+        alignItems: 'flex-start'
+      },
+      end: {
+        alignItems: 'flex-end'
+      }
+    },
+    justify: {
+      center: {
         justifyContent: 'center'
       },
       start: {
-        alignItems: 'flex-start',
         justifyContent: 'flex-start'
+      },
+      end: {
+        justifyContent: 'flex-end'
       }
     },
     full: {
@@ -40,6 +52,7 @@ export const Container = styled('div', {
   defaultVariants: {
     row: false,
     align: 'center',
+    justify: 'start',
     full: false
   }
 })
