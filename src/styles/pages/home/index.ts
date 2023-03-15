@@ -7,9 +7,8 @@ export const HomeContainer = styled('main', {
   alignItems: 'center',
   maxWidth: 'calc(100vw - ((100vw - 1280px) / 2))',
   marginLeft: 'auto',
-  minHeight: 656,
-  flexShrink: 0,
-  overflowX: 'scroll'
+  padding: '1.5rem 0',
+  height: '37.5rem'
 })
 
 export const Product = styled(Link, {
