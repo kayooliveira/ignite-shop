@@ -1,18 +1,13 @@
 
-# <p align="center"> ![Logo](./public/favicon.ico) 
-# <p align="center"> Next + Eslint - Template
+# <p align="center"> ![Logo](./src/assets/logo.png) 
 ---
 
-### Eslint plugins:
+### Lighthouse
+![image](https://user-images.githubusercontent.com/35928107/225229928-2b9a448a-5763-46ca-ae42-5d783b396200.png)
 
-- eslint-config-prettier
-- eslint-config-standard
-- eslint-plugin-import
-- eslint-plugin-import-helpers
-- eslint-plugin-n
-- eslint-plugin-prettier
-- eslint-plugin-promise
-- eslint-plugin-react
+### Project Screenshots
+![image](https://user-images.githubusercontent.com/35928107/225230561-16fda96a-5bc7-4503-80c5-060a8f97c9f4.png)
+
 
 ---
 
