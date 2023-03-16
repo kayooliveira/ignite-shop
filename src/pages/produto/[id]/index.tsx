@@ -5,10 +5,9 @@ import {
   ProductInfoContainer
 } from '@/styles/pages/product'
 import { Button } from '@/ui/Button'
-import { GetServerSideProps } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import Stripe from 'stripe'
 
 type ProductType = {
@@ -20,27 +19,18 @@ type ProductType = {
 }
 
 interface ProductPageProps {
-  product?: ProductType
+  product: ProductType
 }
 
 export default function ProductPage({ product }: ProductPageProps) {
-  const { query, back } = useRouter()
-  const id = query.id
-
   if (!product) {
-    back()
-    return
+    return <></>
   }
-
-  if (!id) {
-    back()
-    return
-  }
-
+  const pageTitle = product.name + ' - Ignite Shop'
   return (
     <>
       <Head>
-        <title> {product.name} - Ignite Shop</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={product.description} />
         <meta
           name="keywords"
@@ -48,7 +38,7 @@ export default function ProductPage({ product }: ProductPageProps) {
         />
         <meta name="msapplication-TileImage" content={product.imageUrl} />
         <meta name="author" content="Kayo Oliveira<contato@kayooliveira.com>" />
-        <meta name="og:title" content={`${product.name} - Ignite Shop`} />
+        <meta name="og:title" content={pageTitle} />
         <meta name="og:site_name" content="Ignite Shop" />
         <meta
           name="og:url"
@@ -89,33 +79,66 @@ export default function ProductPage({ product }: ProductPageProps) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const id = query.id
-  if (id && typeof id === 'string') {
-    const productData = await stripe.products.retrieve(id, {
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [
+      {
+        params: {
+          id: 'prod_NWq6mZMWz3N9fr'
+        }
+      }
+    ],
+    fallback: true
+  }
+}
+
+export const getStaticProps: GetStaticProps<
+  ProductPageProps,
+  { id: string }
+> = async ({ params }) => {
+  try {
+    const productId = params?.id
+
+    if (!productId) {
+      return {
+        redirect: {
+          destination: '/',
+          permanent: false
+        }
+      }
+    }
+
+    const productData = await stripe.products.retrieve(productId, {
       expand: ['default_price']
     })
 
+    if (!productData) {
+      return {
+        notFound: true
+      }
+    }
+
     const productPrice = productData.default_price as Stripe.Price
+
     const product = {
       id: productData.id,
       name: productData.name,
       imageUrl: productData.images[0],
-      description: productData.description,
+      description: productData.description || 'Produto sem descrição...',
       price: new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL'
       }).format(productPrice.unit_amount ? productPrice.unit_amount / 100 : 0)
     }
+
     return {
       props: {
         product: product
       }
     }
-  }
-  return {
-    props: {
-      product: null
+  } catch (error) {
+    return {
+      notFound: true
     }
   }
 }
