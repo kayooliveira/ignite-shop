@@ -1,4 +1,5 @@
 import logo from '@/assets/logo.png'
+import { LoadingOverlay } from '@/components/Loading'
 import { Header } from '@/styles/layout'
 import { Container } from '@/ui/Container'
 import Image from 'next/image'
@@ -22,6 +23,7 @@ export function DefaultLayout({ children, ...props }: DefaultLayoutProps) {
       }}
       {...props}
     >
+      <LoadingOverlay />
       <Header>
         <Link
           href={{
