@@ -86,6 +86,7 @@ export default function Home({ products }: HomeProps) {
         <div className="keen-slider" ref={sliderRef}>
           {products.map(product => (
             <Product
+              prefetch={false}
               key={product.id}
               href={{ pathname: `/produto/${product.id}` }}
               className="keen-slider__slide"
