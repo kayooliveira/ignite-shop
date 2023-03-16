@@ -2,20 +2,22 @@ import { styled } from '@/styles'
 import Link from 'next/link'
 
 export const HomeContainer = styled('main', {
-  display: 'flex',
   width: '100%',
-  alignItems: 'center',
   maxWidth: 'calc(100vw - ((100vw - 1280px) / 2))',
   marginLeft: 'auto',
-  padding: '1.5rem 0',
-  height: '37.5rem'
+  padding: '1.5rem',
+
+  div: {
+    width: '100%',
+    height: '37.5rem'
+  }
 })
 
 export const Product = styled(Link, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  background: 'linear-gradient(180deg, #7465D4 0%,#1EA483 100%)',
+  background: 'linear-gradient(0deg, #7465D4 0%,#1EA483 100%)',
   cursor: 'pointer',
   borderRadius: 8,
   position: 'relative',

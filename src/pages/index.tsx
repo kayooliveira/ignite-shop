@@ -82,25 +82,27 @@ export default function Home({ products }: HomeProps) {
         />
         <link rel="canonical" href="https://ignite.shop.kayooliveira.com" />
       </Head>
-      <HomeContainer className="keen-slider" ref={sliderRef}>
-        {products.map(product => (
-          <Product
-            key={product.id}
-            href={{ pathname: `/produto/${product.id}` }}
-            className="keen-slider__slide"
-          >
-            <Image
-              alt={product.name}
-              src={product.imageUrl}
-              width={520}
-              height={480}
-            />
-            <footer>
-              <strong>{product.name}</strong>
-              <span>{product.price}</span>
-            </footer>
-          </Product>
-        ))}
+      <HomeContainer>
+        <div className="keen-slider" ref={sliderRef}>
+          {products.map(product => (
+            <Product
+              key={product.id}
+              href={{ pathname: `/produto/${product.id}` }}
+              className="keen-slider__slide"
+            >
+              <Image
+                alt={product.name}
+                src={product.imageUrl}
+                width={520}
+                height={480}
+              />
+              <footer>
+                <strong>{product.name}</strong>
+                <span>{product.price}</span>
+              </footer>
+            </Product>
+          ))}
+        </div>
       </HomeContainer>
     </>
   )

@@ -7,8 +7,8 @@ export const ProductContainer = styled('main', {
   width: 'full',
   maxHeight: '100%',
   overflowX: 'scroll',
+  maxWidth: '100%',
   gap: '1.5rem',
-  maxWidth: '$xl',
   margin: '0 auto',
   padding: '1.5rem',
 
@@ -20,18 +20,23 @@ export const ProductContainer = styled('main', {
     justifyContent: 'center',
     flexDirection: 'row',
     padding: '1.5rem',
+    maxWidth: '$xl',
     gap: '4.5rem'
   }
 })
 
 export const ProductImageContainer = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   borderRadius: 8,
-  background: 'linear-gradient(180deg, #7465D4 0%,#1EA483 100%)',
+  background: 'linear-gradient(0deg, #7465D4 0%,#1EA483 100%)',
   width: '100%',
 
   img: {
     width: '100%',
-    height: 'auto'
+    height: 'auto',
+    objectFit: 'cover'
   },
 
   '@lg': {
