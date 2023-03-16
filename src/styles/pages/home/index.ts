@@ -6,10 +6,13 @@ export const HomeContainer = styled('main', {
   maxWidth: 'calc(100vw - ((100vw - 1280px) / 2))',
   marginLeft: 'auto',
   padding: '1.5rem',
-
   div: {
     width: '100%',
     height: '37.5rem'
+  },
+
+  '@lg': {
+    padding: 0
   }
 })
 

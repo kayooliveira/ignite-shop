@@ -21,7 +21,8 @@ export const ProductContainer = styled('main', {
     flexDirection: 'row',
     padding: '1.5rem',
     maxWidth: '$xl',
-    gap: '4.5rem'
+    gap: '4.5rem',
+    overflowX: 'unset'
   }
 })
 
