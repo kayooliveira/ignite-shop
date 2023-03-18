@@ -5,9 +5,12 @@ import {
   ProductInfoContainer
 } from '@/styles/pages/product'
 import { Button } from '@/ui/Button'
+import axios from 'axios'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useState } from 'react'
+import { toast } from 'react-hot-toast'
 import Stripe from 'stripe'
 
 type ProductType = {
@@ -16,6 +19,7 @@ type ProductType = {
   imageUrl: string
   description?: string
   price: string
+  defaultPriceId: string
 }
 
 interface ProductPageProps {
@@ -23,10 +27,30 @@ interface ProductPageProps {
 }
 
 export default function ProductPage({ product }: ProductPageProps) {
+  const [isCreatingCheckoutSession, setIsCreatingCheckouSession] =
+    useState(false)
   if (!product) {
     return <></>
   }
+
   const pageTitle = product.name + ' - Ignite Shop'
+
+  async function handleCheckout() {
+    try {
+      setIsCreatingCheckouSession(true)
+
+      const { checkoutUrl } = await axios
+        .post(`http://localhost:3000/api/checkout`, {
+          productPriceId: product.defaultPriceId
+        })
+        .then(res => res.data)
+
+      window.location.href = checkoutUrl
+    } catch (err) {
+      toast.error('Erro desconhecido, por favor, tente novamente!')
+      setIsCreatingCheckouSession(false)
+    }
+  }
   return (
     <>
       <Head>
@@ -72,7 +96,13 @@ export default function ProductPage({ product }: ProductPageProps) {
             <h2>{product.price}</h2>
             <span>{product.description}</span>
           </div>
-          <Button>Comprar agora</Button>
+          <Button
+            disabled={isCreatingCheckoutSession}
+            type="button"
+            onClick={handleCheckout}
+          >
+            Comprar agora
+          </Button>
         </ProductInfoContainer>
       </ProductContainer>
     </>
@@ -128,7 +158,8 @@ export const getStaticProps: GetStaticProps<
       price: new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL'
-      }).format(productPrice.unit_amount ? productPrice.unit_amount / 100 : 0)
+      }).format(productPrice.unit_amount ? productPrice.unit_amount / 100 : 0),
+      defaultPriceId: productPrice.id
     }
 
     return {
