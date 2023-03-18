@@ -24,7 +24,7 @@
         "react/react-in-jsx-scope": "off",
         "prettier/prettier":"error",
         "space-before-function-paren":"off",
-        "camelcase":"warn",
+        "camelcase":"off",
         "react/prop-types":"off",
         "no-use-before-define":"off",
         "@typescript-eslint/no-explicit-any":"off",
