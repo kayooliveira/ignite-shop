@@ -5,7 +5,7 @@ import { Container } from '@/ui/Container'
 import Image from 'next/image'
 import Link from 'next/link'
 import { HTMLAttributes, ReactNode } from 'react'
-
+import { Toaster } from 'react-hot-toast'
 interface DefaultLayoutProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode
 }
@@ -34,6 +34,7 @@ export function DefaultLayout({ children, ...props }: DefaultLayoutProps) {
         </Link>
       </Header>
       {children}
+      <Toaster />
     </Container>
   )
 }
